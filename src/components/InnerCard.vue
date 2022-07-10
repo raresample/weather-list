@@ -1,5 +1,5 @@
 <template>
-  <div class="weather">
+  <div class="weather" v-if="weather !== null">
     <h1>{{ weather.name }}</h1>
     <div class="temp">Temperature: {{ weather.main.temp }}°F</div>
     <div class="humidity">Humidity: {{ weather.main.humidity }}%</div>
