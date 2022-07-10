@@ -1,4 +1,4 @@
-# reading-list
+# weather-list
 
 ## Project setup
 ```

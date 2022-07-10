@@ -23,6 +23,8 @@ export default {
   },
   setup(props) {
     const apiKey =  'f41ec13a2657bc185cdffa04442de35f'
+    // const apiKey =  process.env.VUE_APP_API_KEY
+    console.log('env:', process.env.VUE_APP_API_KEY)
     const urlBase = 'https://api.openweathermap.org/data/2.5/weather?q='
     const apiUrl = `${urlBase}${props.city}&APPID=${apiKey}&units=imperial`
     const weather = ref(null)
