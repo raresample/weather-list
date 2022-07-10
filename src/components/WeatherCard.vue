@@ -3,20 +3,19 @@
     <div class="city">{{ city }}</div>
   </div>
 
-  <!-- <InnerCard :weather="weather" /> -->
+  <InnerCard :weather="weather" />
 
-  {{ weather }}
 </template>
 
 <script>
 import { onMounted, ref } from '@vue/runtime-core'
 // import { computed } from '@vue/reactivity'
 
-// import InnerCard from './InnerCard.vue'
+import InnerCard from './InnerCard.vue'
 
 export default {
   components: {
-    // InnerCard
+    InnerCard
   },
   props: {
     city: String
