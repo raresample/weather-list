@@ -3,53 +3,52 @@
     <div class="city">{{ city }}</div>
   </div>
 
-  <!-- <InnerCard :weather="weather" /> -->
+  <InnerCard :weather="weather" />
 
   {{ weather }}
 </template>
 
 <script>
-import { onMounted, ref } from '@vue/runtime-core'
+import { onMounted, ref } from "@vue/runtime-core";
 // import { computed } from '@vue/reactivity'
 
-// import InnerCard from './InnerCard.vue'
+import InnerCard from "./InnerCard.vue";
 
 export default {
   components: {
-    // InnerCard
+    InnerCard,
   },
   props: {
-    city: String
+    city: String,
   },
   setup(props) {
-    const apiKey =  'f41ec13a2657bc185cdffa04442de35f'
+    const apiKey = "f41ec13a2657bc185cdffa04442de35f";
     // const apiKey =  process.env.VUE_APP_API_KEY
-    console.log('env:', process.env.VUE_APP_API_KEY)
-    const urlBase = 'https://api.openweathermap.org/data/2.5/weather?q='
-    const apiUrl = `${urlBase}${props.city}&APPID=${apiKey}&units=imperial`
-    const weather = ref(null)
-  
+    console.log("env:", process.env.VUE_APP_API_KEY);
+    const urlBase = "https://api.openweathermap.org/data/2.5/weather?q=";
+    const apiUrl = `${urlBase}${props.city}&APPID=${apiKey}&units=imperial`;
+    const weather = ref(null);
+
     const openWeather = async (apiUrl) => {
-      console.log('apiUrl:', apiUrl)
+      console.log("apiUrl:", apiUrl);
       try {
         let apiCall = await fetch(apiUrl)
-          .then(response => response.json())
-          .then(data => weather.value = data)
-        return apiCall
-
-      } catch(err) {
-        console.log('try error:', err)
-        return err
+          .then((response) => response.json())
+          .then((data) => (weather.value = data));
+        return apiCall;
+      } catch (err) {
+        console.log("try error:", err);
+        return err;
       }
-    }
+    };
 
     onMounted(() => {
-      weather.value = openWeather(apiUrl)
-    })
+      weather.value = openWeather(apiUrl);
+    });
 
-    return { weather }
-  }
-}
+    return { weather };
+  },
+};
 </script>
 
 <style>
