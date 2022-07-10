@@ -44,7 +44,7 @@ export default {
     }
 
     onMounted(() => {
-      weather.value = openWeather(apiUrl)
+      openWeather(apiUrl)
     })
 
     return { weather }
