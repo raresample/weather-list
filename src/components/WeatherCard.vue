@@ -37,15 +37,11 @@ export default {
     const weather = ref(null)
   
     const openWeather = async (apiUrl) => {
-      // console.log('apiUrl:', apiUrl)
       try {
         let apiCall = await fetch(apiUrl)
         let data = await apiCall.json()
         weather.value = data
         return data
-        //   .then(response => response.json())
-        //   .then(data => weather.value = data)
-        // return apiCall
 
       } catch(err) {
         console.log('try error:', err)
