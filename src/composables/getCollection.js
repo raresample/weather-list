@@ -26,7 +26,7 @@ const getCollection = (c, q) => {
   let colRef = collection(db, c)
 
   if (q) {
-    console.log('getCollection composable query:', ...q)
+    // console.log('getCollection composable query:', ...q)
     colRef = query(colRef, where(...q))
   }
 

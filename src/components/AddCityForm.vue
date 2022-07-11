@@ -56,17 +56,16 @@ export default {
 
     const handleSubmit = async () => {
       const colRef = collection(db, 'cities')
-      const checked = await openWeather(city.value)
-      console.log('checked again', checked)
+      const validCity = await openWeather(city.value)
 
-      if (checked.name) {
+      if (validCity.name) {
         await addDoc(colRef, {
         city: city.value,
         isFav: false,
         userUid: user.value.uid
         })
       } else {
-        apiError.value = checked.message
+        apiError.value = validCity.message
       }
       
 

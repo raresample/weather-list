@@ -4,6 +4,7 @@
     Lat : {{ weather.coord.lat }} -->
     
     <div class="left">
+      <!-- is this slot better than emitting an event? -->
       <h2><slot></slot></h2>
       <!-- <h2>{{ weather.name }}</h2> -->
       <div class="temp">
@@ -16,7 +17,6 @@
       <div class="wind">Wind: {{ weather.wind.speed }}mph</div>
       <div class="feels">Feels like: {{ weather.main.feels_like }}°F</div>
     </div>
-    <!-- <div class="city">{{ city }}</div> -->
   </div>
 
   <!-- {{ weather }} -->
@@ -69,6 +69,8 @@ export default {
   padding: 0.825rem;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  height: 10rem;
+  align-items: center;
 }
 
 h2 {
