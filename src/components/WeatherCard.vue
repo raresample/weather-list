@@ -25,53 +25,18 @@
 
 <script>
 import { onMounted, ref } from '@vue/runtime-core'
+import openWeather from '../composables/openWeather'
 
 export default {
   props: {
     city: String
   },
   setup(props) {
-    const apiKey = 'f41ec13a2657bc185cdffa04442de35f'
-    const urlBase = 'https://api.openweathermap.org/data/2.5/weather?q='
-    const apiUrl = `${urlBase}${props.city}&APPID=${apiKey}&units=imperial`
-    const weather = ref(null)
-  
-    const openWeather = async (apiUrl) => {
-      try {
-        let apiCall = await fetch(apiUrl)
-        let data = await apiCall.json()
-        weather.value = data
-        return data
+    const weather = ref(openWeather(props.city))
 
-      } catch(err) {
-        console.log('try error:', err)
-        return err
-      }
-    }
-    // const apiKey = 'f41ec13a2657bc185cdffa04442de35f'
-    // const urlBase = 'https://api.openweathermap.org/data/2.5/weather?q='
-    // const apiUrl = `${urlBase}${props.city}&APPID=${apiKey}&units=imperial`
-    // const weather = ref(null)
-  
-    // const openWeather = async (apiUrl) => {
-    //   // console.log('apiUrl:', apiUrl)
-    //   try {
-    //     let apiCall = await fetch(apiUrl)
-    //     let data = await apiCall.json()
-    //     weather.value = data
-    //     return data
-    //     //   .then(response => response.json())
-    //     //   .then(data => weather.value = data)
-    //     // return apiCall
-
-    //   } catch(err) {
-    //     console.log('try error:', err)
-    //     return err
-    //   }
-    // }
-
-    onMounted(() => {
-      weather.value = openWeather(apiUrl)
+    onMounted( async () => {
+      weather.value = await openWeather(props.city)
+      // console.log('WeatherCard onMounted', weather.value)
     })
 
     return { weather }
