@@ -3,7 +3,12 @@
     <h3>Add a New City</h3>
 
     <label for="city">City:</label>
-    <input type="text" name="city" v-model="city" required>
+    <input 
+      type="text" 
+      name="city" 
+      v-model="city" 
+      @keypress="clearError"
+      required>
     <div class="api-error" v-if="apiError">
       Error: {{ apiError }}
     </div>
@@ -13,7 +18,7 @@
 </template>
 
 <script>
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 import getUser from '../composables/getUser'
 
 // firebase imports
@@ -68,11 +73,11 @@ export default {
       city.value = ''
     } 
 
-    onMounted(() => {
+    const clearError = () => {
       apiError.value = null
-    })
+    }
 
-    return { handleSubmit, city, openWeather, apiError }
+    return { handleSubmit, city, openWeather, apiError,clearError }
   }
 }
 </script>
