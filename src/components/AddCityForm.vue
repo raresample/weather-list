@@ -3,7 +3,8 @@
     <h3>Add a New City</h3>
 
     <label for="city">City:</label>
-    <input 
+    <input
+      :class="{ shrink: apiError }"
       type="text" 
       name="city" 
       v-model="city" 
@@ -91,5 +92,9 @@ form {
 
 .api-error {
   color: lightcoral;
+}
+
+.shrink {
+  margin-bottom: 0;
 }
 </style>

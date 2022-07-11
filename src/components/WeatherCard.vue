@@ -67,14 +67,24 @@ export default {
   background: white;
   margin: 1rem 0;
   padding: 0.825rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 h2 {
   margin-top: 0;
   margin-bottom: 0;
 }
+h2:hover {
+  cursor: pointer;
+  text-decoration: line-through;
+}
 
 h3 {
   margin-top: 0;
+}
+
+.right {
+  text-align: right;
 }
 </style>
