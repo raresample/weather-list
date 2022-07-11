@@ -59,7 +59,7 @@ export default {
       })
     }
 
-    function capitalizeCity(str) {
+    const capitalizeCity = (str) => {
       return str.replace(
         /\w\S*/g,
         function(txt) {

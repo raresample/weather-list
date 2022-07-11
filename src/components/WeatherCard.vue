@@ -5,7 +5,9 @@
       Lat : {{ weather.coord.lat }} -->
       <h2><slot></slot></h2>
       <!-- <h2>{{ weather.name }}</h2> -->
-      <div class="temp">Temperature: {{ weather.main.temp }}°F</div>
+      <div class="temp">
+        <h3>{{ weather.main.temp }}°F</h3>  
+      </div>
       <div class="humidity">Humidity: {{ weather.main.humidity }}%</div>
       <div class="wind">Wind: {{ weather.wind.speed }}mph</div>
       <div class="feels">Feels like: {{ weather.main.feels_like }}°F</div>
