@@ -8,7 +8,7 @@
       <h2><slot></slot></h2>
       <!-- <h2>{{ weather.name }}</h2> -->
       <div class="temp">
-        <h3>{{ weather.main.temp }}°F</h3>  
+        <h3>{{ Math.round(weather.main.temp) }}°F</h3>  
       </div>
     </div>
 
