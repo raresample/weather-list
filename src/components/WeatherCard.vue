@@ -1,13 +1,17 @@
 <template>
-  <div class="weather">
-    <div v-if="weather && weather.coord">
-      <!-- Lon : {{ weather.coord.lon }},
-      Lat : {{ weather.coord.lat }} -->
+  <div class="weather" v-if="weather && weather.coord">
+    <!-- Lon : {{ weather.coord.lon }},
+    Lat : {{ weather.coord.lat }} -->
+    
+    <div class="left">
       <h2><slot></slot></h2>
       <!-- <h2>{{ weather.name }}</h2> -->
       <div class="temp">
         <h3>{{ weather.main.temp }}°F</h3>  
       </div>
+    </div>
+
+    <div class="right">
       <div class="humidity">Humidity: {{ weather.main.humidity }}%</div>
       <div class="wind">Wind: {{ weather.wind.speed }}mph</div>
       <div class="feels">Feels like: {{ weather.main.feels_like }}°F</div>
@@ -63,5 +67,14 @@ export default {
   background: white;
   margin: 1rem 0;
   padding: 0.825rem;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+h3 {
+  margin-top: 0;
 }
 </style>
