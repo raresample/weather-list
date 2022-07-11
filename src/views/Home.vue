@@ -1,5 +1,14 @@
 <template>
   <div class="home">
+    <WeatherCard
+      v-for="city in cities"
+      :key="city.id"
+      :city="city.city"
+    >
+      <div class="city" @click="handleDelete(city)"> 
+        {{ capitalizeCity(city.city) }}
+      </div>
+    </WeatherCard>
     <!-- <ul>
       <li v-for="city in cities" :key="city.id">
         <div class="details">
@@ -10,13 +19,7 @@
 
     <!-- <div>{{ cities }}</div> -->
 
-      <WeatherCard
-        v-for="city in cities"
-        :key="city.id"
-        :city="city.city"
-      >
-        {{ city.city }}
-      </WeatherCard>
+
 
 
     <AddCityForm />
@@ -55,8 +58,18 @@ export default {
         isFav: !city.isFav
       })
     }
-    // console.log('setup():', cities)
-    return { cities, handleDelete, handleUpdate }
+
+    function capitalizeCity(str) {
+      return str.replace(
+        /\w\S*/g,
+        function(txt) {
+          return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+        }
+      );
+    }
+
+
+    return { cities, handleDelete, handleUpdate, capitalizeCity }
   }
 }
 </script>
