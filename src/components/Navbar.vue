@@ -76,7 +76,7 @@ nav + p {
 
 @media (min-width: 480px) {
   .navbar {
-    margin: 0 1.5rem;
+    margin: 0 1rem;
   }
 }
 </style>

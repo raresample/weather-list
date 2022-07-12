@@ -90,9 +90,12 @@ export default {
   text-decoration: line-through;
 }
 
-.weather h3 {
+h3 {
   margin-top: 0;
   margin-bottom: 0;
+}
+
+.weather h3 {
   font-size: 3rem;
 }
 

@@ -68,7 +68,7 @@ export default {
 
 <style>
 form {
-  padding: 10px;
+  padding: 2rem 0.5rem;
   margin-top: 10px;
   border: 1px dashed #c3c8ce;
 }
