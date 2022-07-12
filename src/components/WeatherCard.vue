@@ -10,12 +10,18 @@
       <div class="temp">
         <h3>{{ Math.round(weather.main.temp) }}°F</h3>  
       </div>
+      <div class="time">
+        {{ localTime.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }) }}
+      </div>
+      <!-- <div class="time">
+        {{ localTime.toLocaleDateString() }}
+      </div> -->
     </div>
 
     <div class="right">
       <div class="humidity">Humidity: {{ weather.main.humidity }}%</div>
       <div class="wind">Wind: {{ weather.wind.speed }}mph</div>
-      <div class="feels">Feels like: {{ weather.main.feels_like }}°F</div>
+      <div class="feels">Feels like: {{ weather.main.feels_like }}°</div>
     </div>
   </div>
 
@@ -33,13 +39,26 @@ export default {
   },
   setup(props) {
     const weather = ref(openWeather(props.city))
+    const timezone = ref(null)
+    const localTime = ref(null)
+
+    const adjustTime = (timezone, date = new Date()) => {
+      const currentZone = date.getTimezoneOffset() / 60
+      date.setHours(date.getHours() + timezone + currentZone)
+
+      return date
+    }
 
     onMounted( async () => {
       weather.value = await openWeather(props.city)
       // console.log('WeatherCard onMounted', weather.value)
+      timezone.value = weather.value.timezone / 3600
+      // console.log('timezone:', timezone.value)
+      localTime.value = adjustTime(timezone.value)
+
     })
 
-    return { weather }
+    return { weather, localTime }
   }
 }
 </script>
@@ -66,6 +85,7 @@ export default {
 
 h3 {
   margin-top: 0;
+  margin-bottom: 0;
 }
 
 .right {
