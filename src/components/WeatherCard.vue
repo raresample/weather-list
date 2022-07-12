@@ -55,11 +55,11 @@ export default {
   align-items: center;
 }
 
-h2 {
+.left h2 {
   margin-top: 0;
   margin-bottom: 0;
 }
-h2:hover {
+.left h2:hover {
   cursor: pointer;
   text-decoration: line-through;
 }

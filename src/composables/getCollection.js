@@ -14,6 +14,7 @@ const getCollection = (c, q) => {
   if (q) {
     // console.log('getCollection composable query:', ...q)
     colRef = query(colRef, where(...q))
+    // colRef = query(colRef, orderBy('created'))
   }
 
   const unsub = onSnapshot(colRef, snapshot => {
