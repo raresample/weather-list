@@ -91,4 +91,11 @@ h3 {
 .right {
   text-align: right;
 }
+
+@media (min-width: 480px) {
+  .weather {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
 </style>
