@@ -2,7 +2,7 @@ import { ref, watchEffect } from 'vue'
 
 // firebase imports
 import { db } from '../firebase/config'
-import { collection, onSnapshot, query, where } from 'firebase/firestore'
+import { collection, onSnapshot, query, where, orderBy } from 'firebase/firestore'
 
 
 const getCollection = (c, q) => {
@@ -14,7 +14,9 @@ const getCollection = (c, q) => {
   if (q) {
     // console.log('getCollection composable query:', ...q)
     colRef = query(colRef, where(...q))
-    // colRef = query(colRef, orderBy('created'))
+    console.log('checking colRef', colRef)
+    colRef = query(colRef, orderBy('created' ,'asc'))
+    console.log('rechecking colRef', colRef)
   }
 
   const unsub = onSnapshot(colRef, snapshot => {
