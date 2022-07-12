@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <!-- <Toggle /> -->
     <WeatherCard
       v-for="city in cities"
       :key="city.id"
@@ -34,8 +33,6 @@ import getCollection from '@/composables/getCollection'
 import { db } from '../firebase/config'
 import { doc, deleteDoc, updateDoc } from 'firebase/firestore'
 import getUser from '../composables/getUser'
-
-// import Toggle from '../components/Toggle.vue'
 
 export default {
   name: 'Home',

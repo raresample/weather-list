@@ -21,7 +21,7 @@
     <div class="right">
       <div class="humidity">Humidity: {{ weather.main.humidity }}%</div>
       <div class="wind">Wind: {{ weather.wind.speed }}mph</div>
-      <div class="feels">Feels like: {{ weather.main.feels_like }}°</div>
+      <div class="feels">Feels like: {{ Math.round(weather.main.feels_like) }}°</div>
     </div>
   </div>
 
