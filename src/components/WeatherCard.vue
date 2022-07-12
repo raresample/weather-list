@@ -5,17 +5,17 @@
     
     <div class="left">
       <!-- is this slot better than emitting an event? -->
-      <h2><slot></slot></h2>
-      <!-- <h2>{{ weather.name }}</h2> -->
+      <div class="local">
+        <h2><slot></slot></h2>
+        <!-- <h2>{{ weather.name }}</h2> -->
+        <div class="time">
+          {{ localTime.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }) }}
+        </div>
+      </div>
       <div class="temp">
         <h3>{{ Math.round(weather.main.temp) }}°F</h3>  
       </div>
-      <div class="time">
-        {{ localTime.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }) }}
-      </div>
-      <!-- <div class="time">
-        {{ localTime.toLocaleDateString() }}
-      </div> -->
+
     </div>
 
     <div class="right">
@@ -66,12 +66,17 @@ export default {
 <style>
 .weather {
   background: white;
+  box-shadow: 0 0 3px rgba(0,0,0,0.25);
   margin: 1rem 0;
-  padding: 0.825rem;
+  padding: 1rem;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  height: 10rem;
-  align-items: center;
+  height: 7.5rem;
+  align-items: stretch;
+}
+
+.left {
+  display: grid;
 }
 
 .left h2 {
@@ -83,9 +88,15 @@ export default {
   text-decoration: line-through;
 }
 
-h3 {
+.weather h3 {
   margin-top: 0;
   margin-bottom: 0;
+  font-size: 3rem;
+}
+
+.temp {
+  display: grid;
+  align-content: end;
 }
 
 .right {
