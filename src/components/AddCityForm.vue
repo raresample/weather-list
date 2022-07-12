@@ -25,7 +25,7 @@ import openWeather from '../composables/openWeather'
 
 // firebase imports
 import { db } from '../firebase/config'
-import { addDoc, collection } from 'firebase/firestore'
+import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
 
 export default {
   setup() {
@@ -41,7 +41,8 @@ export default {
         await addDoc(colRef, {
         city: city.value,
         isFav: false,
-        userUid: user.value.uid
+        userUid: user.value.uid,
+        created: serverTimestamp()
         })
       } else {
         apiError.value = validCity.message
