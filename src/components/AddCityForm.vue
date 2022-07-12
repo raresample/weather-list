@@ -2,7 +2,6 @@
   <form @submit.prevent="handleSubmit">
     <h3>Add a New City</h3>
 
-    <label for="city">City:</label>
     <input
       :class="{ shrink: apiError }"
       type="text" 
@@ -80,5 +79,11 @@ form {
 
 .shrink {
   margin-bottom: 0;
+}
+
+@media (min-width: 480px) {
+  form {
+    padding-left: 1.5rem;
+  }
 }
 </style>

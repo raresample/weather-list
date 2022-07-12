@@ -66,6 +66,8 @@ export default {
 <style>
 .weather {
   background: white;
+  /* color: #2c3e50; */
+  border-radius: 5px;
   box-shadow: 0 0 3px rgba(0,0,0,0.25);
   margin: 1rem 0;
   padding: 1rem;

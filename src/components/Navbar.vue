@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="navbar">
     <nav>
       <h1>My Weather</h1>
 
@@ -72,5 +72,11 @@ nav a.router-link-exact-active {
 nav + p {
   margin-top: 0;
   margin-bottom: 30px;
+}
+
+@media (min-width: 480px) {
+  .navbar {
+    margin: 0 1.5rem;
+  }
 }
 </style>
