@@ -1,5 +1,15 @@
 <template>
   <div class="home">
+    <div class="order-select">
+      <select name='orderby' v-model="order">
+        <option disabled value="">Sort By:</option>
+        <option value="asc">Newest</option>
+        <option value='desc'>Oldest</option>
+    </select>
+    </div>
+    <!-- <div class="order">
+      order ref value: {{ order }}
+    </div> -->
     <WeatherCard
       v-for="city in cities"
       :key="city.id"
@@ -40,7 +50,6 @@ export default {
   components: { AddCityForm, WeatherCard },
   setup() {
     const { user } = getUser()
-
     const order = ref('asc')
 
     const { documents: cities } = getCollection(
@@ -73,12 +82,20 @@ export default {
     }
 
 
-    return { cities, handleDelete, handleUpdate, capitalizeCity }
+    return { cities, handleDelete, handleUpdate, capitalizeCity, order }
   }
 }
 </script>
 
 <style>
+.order-select {
+  display: flex;
+  justify-content: end;
+}
+
+.order-select {
+  margin: 2rem 0;
+}
 .icon {
   color: #bbbbbb;
   cursor: pointer;
