@@ -129,7 +129,7 @@ h3 {
 
 .material-icons:hover {
   cursor: pointer;
-  color: red;
+  color: #f83f5e;
 }
 
 @media (min-width: 480px) {

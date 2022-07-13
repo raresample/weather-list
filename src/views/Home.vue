@@ -2,6 +2,7 @@
   <div class="home">
     <div class="order-select">
       <!-- <label for="orderby">Sort by</label> -->
+      <span class="material-icons">sort</span>
       <select name='orderby' v-model="order">
         <option disabled value="">Sort By:</option>
         <option value="asc">Newest</option>
@@ -89,19 +90,12 @@ export default {
 
 <style>
 .order-select {
+  margin: 2rem 0;
   display: flex;
   justify-content: end;
 }
 
-.order-select {
-  margin: 2rem 0;
-}
-.icon {
-  color: #bbbbbb;
-  cursor: pointer;
-}
-
-.icon.fav {
-  color: #f83f5e;
+.order-select span {
+  padding-right: 0.5rem;
 }
 </style>
