@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <div class="order-select">
+      <!-- <label for="orderby">Sort by</label> -->
       <select name='orderby' v-model="order">
         <option disabled value="">Sort By:</option>
         <option value="asc">Newest</option>
@@ -28,9 +29,6 @@
     </ul> -->
 
     <!-- <div>{{ cities }}</div> -->
-
-
-
 
     <AddCityForm />
   </div>
