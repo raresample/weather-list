@@ -6,7 +6,7 @@
       <!-- for logged in users -->
       <div v-if="user">
         <router-link to="/">Home</router-link>
-        <button @click="handleClick">Logout</button>
+        <button @click="handleClick" class="logout">Logout</button>
       </div>
       
       <!-- for logged out users -->
@@ -66,6 +66,11 @@ nav a {
 nav button {
   margin-left: 16px;
 }
+
+nav button.logout:hover {
+  background-color: #2c3e50;;
+}
+
 nav a.router-link-exact-active {
   color: #0ec58e;
 }

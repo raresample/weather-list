@@ -13,7 +13,7 @@
       Error: {{ apiError }}
     </div>
 
-    <button>Add City</button>
+    <button class="add-city">Add City</button>
   </form>
 </template>
 
@@ -79,6 +79,10 @@ form {
 
 .shrink {
   margin-bottom: 0;
+}
+
+.add-city:hover {
+  box-shadow: 3px 2px 2px lawngreen;
 }
 
 @media (min-width: 480px) {
