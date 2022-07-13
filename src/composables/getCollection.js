@@ -5,7 +5,7 @@ import { db } from '../firebase/config'
 import { collection, onSnapshot, query, where, orderBy } from 'firebase/firestore'
 
 
-const getCollection = (c, q) => {
+const getCollection = (c, q, o) => {
   const documents = ref(null)
 
   // collection reference
@@ -15,8 +15,9 @@ const getCollection = (c, q) => {
     // console.log('getCollection composable query:', ...q)
     colRef = query(colRef, where(...q))
     console.log('checking colRef', colRef)
-    colRef = query(colRef, orderBy('created' ,'asc'))
-    console.log('rechecking colRef', colRef)
+    // colRef = query(colRef, orderBy(...o))
+    colRef = query(colRef, orderBy('created', o))
+    // console.log('rechecking colRef', colRef)
   }
 
   const unsub = onSnapshot(colRef, snapshot => {

@@ -33,6 +33,7 @@ import getCollection from '@/composables/getCollection'
 import { db } from '../firebase/config'
 import { doc, deleteDoc, updateDoc } from 'firebase/firestore'
 import getUser from '../composables/getUser'
+import { ref } from '@vue/reactivity'
 
 export default {
   name: 'Home',
@@ -40,9 +41,12 @@ export default {
   setup() {
     const { user } = getUser()
 
+    const order = ref('asc')
+
     const { documents: cities } = getCollection(
       'cities',
-      ['userUid', '==', user.value.uid]
+      ['userUid', '==', user.value.uid],
+      order.value
       )
 
     const handleDelete = (city) => {
