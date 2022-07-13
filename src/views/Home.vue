@@ -5,8 +5,8 @@
       <span class="material-icons">sort</span>
       <select name='orderby' v-model="order">
         <option disabled value="">Sort By:</option>
-        <option value="asc">Newest</option>
-        <option value='desc'>Oldest</option>
+        <option value="asc">Oldest First</option>
+        <option value='desc'>Newest First</option>
       </select>
     </div>
     <!-- <div class="order">
@@ -82,15 +82,20 @@ export default {
       );
     }
 
-
-    return { cities, handleDelete, handleUpdate, capitalizeCity, order }
+    return { 
+      cities,
+      handleDelete,
+      handleUpdate,
+      capitalizeCity,
+      order 
+    }
   }
 }
 </script>
 
 <style>
 .order-select {
-  margin: 2rem 0;
+  margin: 0 0 1rem 0;
   display: flex;
   justify-content: end;
 }
