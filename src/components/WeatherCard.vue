@@ -127,7 +127,7 @@ h3 {
   cursor: pointer;
 }
 
-.material-icons::hover {
+.material-icons:hover {
   cursor: pointer;
   color: red;
 }
