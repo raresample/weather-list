@@ -6,17 +6,19 @@
         <option disabled value="">Sort By:</option>
         <option value="asc">Newest</option>
         <option value='desc'>Oldest</option>
-    </select>
+      </select>
     </div>
     <!-- <div class="order">
       order ref value: {{ order }}
     </div> -->
     <WeatherCard
+      @delete="handleDelete(city)"
       v-for="city in cities"
       :key="city.id"
       :city="city.city"
     >
-      <div class="city" @click="handleDelete(city)"> 
+      <!-- <div class="city" @click="handleDelete(city)">  -->
+      <div class="city"> 
         {{ capitalizeCity(city.city) }}
       </div>
     </WeatherCard>

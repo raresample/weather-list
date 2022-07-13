@@ -6,8 +6,8 @@
     <div class="left">
       <!-- is this slot better than emitting an event? -->
       <div class="local">
-        <h2><slot></slot></h2>
-        <!-- <h2>{{ weather.name }}</h2> -->
+        <!-- <h2><slot></slot></h2> -->
+        <h2>{{ weather.name }}</h2>
         <div class="time">
           {{ localTime.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' }) }}
         </div>
@@ -19,9 +19,16 @@
     </div>
 
     <div class="right">
-      <div class="humidity">Humidity: {{ weather.main.humidity }}%</div>
-      <div class="wind">Wind: {{ Math.round(weather.wind.speed) }}mph</div>
-      <div class="feels">Feels like: {{ Math.round(weather.main.feels_like) }}°</div>
+      <div class="details">
+        <div class="humidity">Humidity: {{ weather.main.humidity }}%</div>
+        <div class="wind">Wind: {{ Math.round(weather.wind.speed) }}mph</div>
+        <div class="feels">Feels like: {{ Math.round(weather.main.feels_like) }}°</div>
+      </div>
+      <div class="delete">
+        <div class="trash" @click="$emit('delete')">
+          <span class="material-icons">delete</span>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -85,10 +92,10 @@ export default {
   margin-top: 0;
   margin-bottom: 0;
 }
-.left h2:hover {
+/* .left h2:hover {
   cursor: pointer;
   text-decoration: line-through;
-}
+} */
 
 h3 {
   margin-top: 0;
@@ -106,6 +113,22 @@ h3 {
 
 .right {
   text-align: right;
+  display: grid;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+}
+
+.delete {
+  display: grid;
+  align-content: end;
+}
+
+.material-icons {
+  cursor: pointer;
+}
+
+.material-icons::hover {
+  cursor: pointer;
+  color: red;
 }
 
 @media (min-width: 480px) {

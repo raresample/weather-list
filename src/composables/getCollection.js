@@ -14,8 +14,7 @@ const getCollection = (c, q, o) => {
   if (q) {
     // console.log('getCollection composable query:', ...q)
     colRef = query(colRef, where(...q))
-    console.log('checking colRef', colRef)
-    // colRef = query(colRef, orderBy(...o))
+    // console.log('checking colRef', colRef)
     colRef = query(colRef, orderBy('created', o))
     // console.log('rechecking colRef', colRef)
   }
