@@ -5,7 +5,7 @@
 
       <!-- for logged in users -->
       <div v-if="user">
-        <router-link to="/">Home</router-link>
+        <!-- <router-link to="/">Home</router-link> -->
         <button @click="handleClick" class="logout">Logout</button>
       </div>
       
@@ -61,7 +61,7 @@ nav h1 {
 }
 nav a {
   margin-left: 16px;
-  color: #2c3e50;
+  color: #fff;
 }
 nav button {
   margin-left: 16px;
