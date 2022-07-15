@@ -17,9 +17,11 @@ export default {
 body {
   background: darkgray;
   /* background: #555; */
-  background-image: url('assets/nature.jpg');
+  background-image: url('assets/green-gradient.jpg');
   background-position: center;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
