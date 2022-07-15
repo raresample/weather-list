@@ -72,7 +72,7 @@ export default {
 
 <style>
 .weather {
-  background: white;
+  /* background: white; */
   /* color: #2c3e50; */
   /* border-radius: 5px; */
   /* box-shadow: 0 0 3px rgba(0,0,0,0.25); */
@@ -82,7 +82,11 @@ export default {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   height: 7.5rem;
   align-items: stretch;
-  box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 20%), 0 1px 5px 0 rgb(0 0 0 / 12%);
+  /* box-shadow: 0 2px 2px 0 rgb(0 0 0 / 14%), 0 3px 1px -2px rgb(0 0 0 / 20%), 0 1px 5px 0 rgb(0 0 0 / 12%); */
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
 }
 
 .left {

@@ -15,15 +15,18 @@ export default {
 
 <style>
 body {
-  background: #f2f2f2;
+  background: darkgray;
   /* background: #555; */
+  background-image: url('assets/nature.jpg');
+  background-position: center;
+  background-size: cover;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  /* color: white; */
+  color: white;
 }
 .container {
   max-width: 560px;
