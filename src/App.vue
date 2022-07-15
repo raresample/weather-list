@@ -17,7 +17,7 @@ export default {
 body {
   background: darkgray;
   /* background: #555; */
-  background-image: url('assets/green-gradient.jpg');
+  background-image: url('assets/purple.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
