@@ -17,11 +17,14 @@ export default {
 body {
   background: darkgray;
   /* background: #555; */
+/*   
   background-image: url('assets/purple.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: fixed; */
+
+  background: linear-gradient(#9198e5, #e66465);
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
