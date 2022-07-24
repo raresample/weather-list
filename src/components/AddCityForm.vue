@@ -32,8 +32,11 @@ export default {
     const city = ref('')
     const apiError = ref('')
 
+    // Add City button for new Firestore document
     const handleSubmit = async () => {
       const colRef = collection(db, 'cities')
+      
+      // Check for weather to validate new city
       const validCity = await openWeather(city.value)
 
       if (validCity.name) {
@@ -52,6 +55,7 @@ export default {
       city.value = ''
     } 
 
+    // Clear the API Error message when user begins correcting invalid submission
     const clearError = () => {
       apiError.value = null
     }

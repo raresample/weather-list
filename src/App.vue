@@ -16,7 +16,6 @@ export default {
 <style>
 body {
   background: darkgray;
-  /* background: #555; */
 /*   
   background-image: url('assets/purple.jpg');
   background-position: center;
