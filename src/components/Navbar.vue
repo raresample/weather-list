@@ -58,6 +58,7 @@ nav {
 nav h1 {
   margin-right: auto;
   margin-bottom: 0;
+  font-size: 2rem;
 }
 nav a {
   margin-left: 16px;

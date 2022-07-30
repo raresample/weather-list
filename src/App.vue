@@ -33,6 +33,8 @@ body {
 
   background: linear-gradient(#9198e5, #e66465);
   height: 100vh;
+  /* background-repeat: no-repeat; */
+  background-attachment: fixed;
 }
 
 .container {
