@@ -14,6 +14,14 @@ export default {
 </script>
 
 <style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+  color: white;
+}
+
 body {
   /* background: darkgray; */
 /*   
@@ -24,14 +32,9 @@ body {
   background-attachment: fixed; */
 
   background: linear-gradient(#9198e5, #e66465);
+  height: 100vh;
 }
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-  color: white;
-}
+
 .container {
   max-width: 560px;
   margin: 0 auto;
