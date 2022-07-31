@@ -3,8 +3,14 @@
     <div class="order-select">
       <!-- <label for="orderby">Sort by</label> -->
       <span class="material-icons">sort</span>
-      <select name='orderby' v-model="order">
+      <select 
+        name='orderby' 
+        v-model="order" 
+        v-on:change="sortCities"
+        >
         <option disabled value="">Sort By:</option>
+        <option value="AtoZ">A-Z</option>
+        <option value='ZtoA'>Z-A</option>
         <option value="asc">Oldest First</option>
         <option value='desc'>Newest First</option>
       </select>
@@ -82,12 +88,63 @@ export default {
       );
     }
 
+    function sortCities () {
+      console.log('sortCities')
+      console.log(this.cities)
+      if (this.order == 'ZtoA') {
+        this.cities.sort(sortZtoA);
+      }
+      if (this.order == 'AtoZ') {
+        this.cities.sort(sortAtoZ);
+      }
+      if (this.order == 'desc') {
+        this.cities.sort(sortOldest);
+      }
+      if (this.order == 'asc') {
+        this.cities.sort(sortNewest);
+      }
+
+      
+      console.log('after', this.cities)
+      console.log(this.order)
+    }
+
+    function sortAtoZ (a,b) {
+        if(a.city < b.city) return -1;
+        if(a.city > b.city) return 1;
+        
+        return 0;
+      }
+    function sortZtoA (a,b) {
+        if(a.city < b.city) return 1;
+        if(a.city > b.city) return -1;
+        
+        return 0;
+      }
+    function sortOldest (a,b) {
+        if(a.created < b.created) return 1;
+        if(a.created > b.created) return -1;
+        
+        return 0;
+      }
+    function sortNewest (a,b) {
+        if(a.created < b.created) return -1;
+        if(a.created > b.created) return 1;
+        
+        return 0;
+      }
+
     return { 
       cities,
       handleDelete,
       handleUpdate,
       capitalizeCity,
-      order 
+      order,
+      sortCities,
+      sortAtoZ,
+      sortZtoA,
+      sortNewest,
+      sortOldest
     }
   }
 }

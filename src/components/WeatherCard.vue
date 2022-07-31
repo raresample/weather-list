@@ -127,11 +127,11 @@ h3 {
   align-content: end;
 }
 
-.material-icons {
+.trash .material-icons {
   cursor: pointer;
 }
 
-.material-icons:hover {
+.trash .material-icons:hover {
   cursor: pointer;
   color: #f83f5e;
 }
