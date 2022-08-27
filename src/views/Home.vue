@@ -6,7 +6,7 @@
       <select 
         name='orderby' 
         v-model="order" 
-        v-on:change="sortCities"
+        @change="sortCities"
         >
         <option disabled value="">Sort By:</option>
         <option value="AtoZ">A-Z</option>
@@ -103,31 +103,29 @@ export default {
       if (this.order == 'asc') {
         this.cities.sort(sortNewest);
       }
-
-      
-      console.log('after', this.cities)
-      console.log(this.order)
+      // console.log('after', this.cities)
+      // console.log(this.order)
     }
 
-    function sortAtoZ (a,b) {
+    const sortAtoZ = (a,b) => {
         if(a.city < b.city) return -1;
         if(a.city > b.city) return 1;
         
         return 0;
       }
-    function sortZtoA (a,b) {
+    const sortZtoA = (a,b) => {
         if(a.city < b.city) return 1;
         if(a.city > b.city) return -1;
         
         return 0;
       }
-    function sortOldest (a,b) {
+    const sortOldest = (a,b) => {
         if(a.created < b.created) return 1;
         if(a.created > b.created) return -1;
         
         return 0;
       }
-    function sortNewest (a,b) {
+    const sortNewest = (a,b) => {
         if(a.created < b.created) return -1;
         if(a.created > b.created) return 1;
         
@@ -140,11 +138,7 @@ export default {
       handleUpdate,
       capitalizeCity,
       order,
-      sortCities,
-      sortAtoZ,
-      sortZtoA,
-      sortNewest,
-      sortOldest
+      sortCities
     }
   }
 }
